@@ -3,46 +3,40 @@ import { Link, useParams } from "react-router-dom";
 
 function CourseDetail() {
   const { id } = useParams();
+  let person = null;
 
-  // Replace with actual course details fetch logic
-  const course = {
-    id: 1,
-    name: "Course 1",
-    videos: [
-      {
-        id: 1,
-        title: "Introduction",
-        link: "https://www.example.com/intro-video",
-      },
-      {
-        id: 2,
-        title: "Module 1",
-        link: "https://www.example.com/module1-video",
-      },
-      {
-        id: 3,
-        title: "Module 2",
-        link: "https://www.example.com/module2-video",
-      },
-    ],
-  };
+  // Use strict equality check and handle person data as an object
+  if (id === "1") {
+    person = {
+      person_name: "Umang Singh",
+      person_course: "Web3 and DevOps",
+    };
+  } else if (id === "2") {
+    person = {
+      person_name: "Gaurav Singh",
+      person_course: "Web Development",
+    };
+  } else if (id === "3") {
+    person = {
+      person_name: "Shantanu Chaudhary",
+      person_course: "Data Science",
+    };
+  } else if (id === "4") {
+    person = {
+      person_name: "Anurag Kumar Tiwari",
+      person_course: "Machine Learning",
+    };
+  }
 
-  const downloadInvoice = () => {
-    // Mock download
-    alert(`Downloading invoice for course ${course.name}`);
-    // Replace with actual download logic
-  };
-
-  const downloadCertificate = () => {
-    // Mock download
-    alert(`Downloading certificate for course ${course.name}`);
-    // Replace with actual download logic
-  };
+  // Handle the case when the person data is not available
+  if (!person) {
+    return <div>Person not found</div>;
+  }
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <nav className="bg-gray-800 p-4 text-white">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
+      <nav className="p-4 text-white bg-gray-800">
+        <div className="flex justify-between items-center mx-auto max-w-7xl">
           <div>
             <span className="text-xl font-bold">Course Website</span>
           </div>
@@ -53,27 +47,12 @@ function CourseDetail() {
           </div>
         </div>
       </nav>
-      <div className="max-w-7xl mx-auto py-6 px-4">
-        <div className="bg-white p-8 rounded-lg shadow-lg">
-          <h1 className="text-3xl font-bold mb-4">
-            Course Details: {course.name}
+      <div className="py-6 px-4 mx-auto max-w-7xl">
+        <div className="p-8 bg-white rounded-lg shadow-lg">
+          <h1 className="mb-4 text-3xl font-bold">
+            Congratulations {person.person_name}, You have successfully
+            completed your course on {person.person_course}!
           </h1>
-          <h2 className="text-xl font-bold mb-2">Videos</h2>
-          <ul className="mb-4">
-            {course.videos.map((video) => (
-              <li key={video.id}>
-                <a
-                  href={video.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
-                >
-                  {video.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-         
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import Courses from "./components/Courses";
 import CourseDetail from "./components/CourseDetail";
 import Profile from "./components/Profile";
+import UserHome from "./components/AfterLoginHome";
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/userhome/:id" element={<UserHome />} />
         <Route path="/courses/:id" element={<CourseDetail />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:id" element={<Profile />} />
       </Routes>
     </Router>
   );
