@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 
 function Profile() {
   const { id } = useParams(); // Retrieve the ID from the URL
-  const college = "Example University"; // College data remains the same
+  const college = "Army Institute Of Technology, Pune"; // College data remains the same
 
   // Define user data based on the ID
   const users = {
@@ -11,21 +11,25 @@ function Profile() {
       name: "Umang Singh",
       courseEnrolled: "Web3 and DevOps",
       enrollmentDate: "January 10, 2024",
+      //6 weeks
     },
     2: {
       name: "Gaurav Singh",
       courseEnrolled: "Web Development",
       enrollmentDate: "February 15, 2024",
+      //8 weeks
     },
     3: {
       name: "Shantanu Chaudhary",
       courseEnrolled: "Data Science",
       enrollmentDate: "March 20, 2024",
+      //10 weeks
     },
     4: {
       name: "Anurag Kumar Tiwari",
       courseEnrolled: "Machine Learning",
-      enrollmentDate: "April 5, 2024",
+      enrollmentDate: "February 27, 2024",
+      //12 weeks
     },
   };
 
