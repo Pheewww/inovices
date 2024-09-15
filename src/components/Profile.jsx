@@ -1,97 +1,97 @@
 import { useParams, Link } from "react-router-dom";
 
 function Profile() {
-  const { id } = useParams(); // Retrieve the ID from the URL
-  const college = "Army Institute Of Technology, Pune"; // College data remains the same
+  const { id } = useParams();
+  const college = "Army Institute Of Technology, Pune";
 
-  // Define user data based on the ID
   const users = {
     1: {
       name: "Umang Singh",
       courseEnrolled: "Web3 and DevOps",
       enrollmentDate: "January 10, 2024",
-      //6 weeks
     },
     2: {
       name: "Gaurav Singh",
       courseEnrolled: "Web Development",
       enrollmentDate: "February 15, 2024",
-      //8 weeks
     },
     3: {
       name: "Shantanu Chaudhary",
       courseEnrolled: "Data Science",
       enrollmentDate: "March 20, 2024",
-      //10 weeks
     },
     4: {
       name: "Anurag Kumar Tiwari",
       courseEnrolled: "Machine Learning",
       enrollmentDate: "February 27, 2024",
-      //12 weeks
     },
   };
 
-  const user = users[id] || {}; // Get user data based on the ID or default to an empty object
+  const user = users[id] || {};
 
-  // Handle cases where user data might not be available
   if (!user.name) {
-    return <div>Profile not found</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center text-lg">
+        Profile not found
+      </div>
+    );
   }
 
   const downloadInvoice = () => {
-    // Mock download
     alert(`Downloading invoice for ${user.courseEnrolled}`);
   };
 
   const downloadCertificate = () => {
-    // Mock download
     alert(`Downloading certificate for ${user.courseEnrolled}`);
   };
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <nav className="p-4 text-white bg-gray-800">
-        <div className="flex justify-between items-center mx-auto max-w-7xl">
-          <div>
-            <span className="text-xl font-bold">Course Website</span>
-          </div>
-          <div>
-            <Link to="/courses" className="mr-4">
-              Courses
-            </Link>
-          </div>
+      <nav className="bg-gray-800 text-white p-4">
+        <div className="flex justify-between items-center max-w-7xl mx-auto">
+          <Link to="/" className="text-blue-300 hover:text-blue-500">
+            <span className="text-xl font-bold">Educate Learning</span>
+          </Link>
+          <Link to="/courses" className="text-blue-300 hover:text-blue-500">
+            Courses
+          </Link>
         </div>
       </nav>
-      <div className="py-6 px-4 mx-auto max-w-7xl">
+      <div className="py-6 px-4 mx-auto max-w-4xl">
         <div className="p-8 bg-white rounded-lg shadow-lg">
-          <h1 className="mb-4 text-3xl font-bold">Profile</h1>
-          <div className="mb-4">
-            <h2 className="text-xl font-bold">Name</h2>
-            <p>{user.name}</p>
+          <h1 className="text-3xl font-bold mb-6">Profile</h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <h2 className="text-lg font-semibold text-gray-700">Name</h2>
+              <p className="text-gray-900">{user.name}</p>
+            </div>
+            <div>
+              <h2 className="text-lg font-semibold text-gray-700">
+                Course Enrolled
+              </h2>
+              <p className="text-gray-900">{user.courseEnrolled}</p>
+            </div>
+            <div>
+              <h2 className="text-lg font-semibold text-gray-700">College</h2>
+              <p className="text-gray-900">{college}</p>
+            </div>
+            <div>
+              <h2 className="text-lg font-semibold text-gray-700">
+                Date of Enrollment
+              </h2>
+              <p className="text-gray-900">{user.enrollmentDate}</p>
+            </div>
           </div>
-          <div className="mb-4">
-            <h2 className="text-xl font-bold">Course Enrolled</h2>
-            <p>{user.courseEnrolled}</p>
-          </div>
-          <div className="mb-4">
-            <h2 className="text-xl font-bold">College</h2>
-            <p>{college}</p>
-          </div>
-          <div className="mb-4">
-            <h2 className="text-xl font-bold">Date of Enrollment</h2>
-            <p>{user.enrollmentDate}</p>
-          </div>
-          <div>
+          <div className="flex flex-col md:flex-row gap-60">
             <button
               onClick={downloadInvoice}
-              className="py-2 px-4 mr-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+              className="py-2 px-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-600 transition duration-200"
             >
               Download Invoice
             </button>
             <button
               onClick={downloadCertificate}
-              className="py-2 px-4 font-bold text-white bg-green-500 rounded hover:bg-green-700"
+              className="py-2 px-4 font-bold text-white bg-green-500 rounded hover:bg-green-600 transition duration-200"
             >
               Download Certificate
             </button>
