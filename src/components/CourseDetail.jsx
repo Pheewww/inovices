@@ -54,7 +54,7 @@ function CourseDetail() {
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = person.certificate_pdf;
-    link.download = `${person.person_name}_certificate.pdf`;
+    link.download = `${person.person_name}_certificate.png`;
     link.click();
   };
 

@@ -68,7 +68,7 @@ function Profile() {
   const downloadCertificate = () => {
     const link = document.createElement("a");
     link.href = user.certificate;
-    link.download = `${user.name}_certificate.pdf`;
+    link.download = `${user.name}_certificate.png`;
     link.click();
   };
 
