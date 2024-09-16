@@ -1,60 +1,88 @@
 import { Link, useParams } from "react-router-dom";
 
-// Import PDF assets (assuming they're placed in the public or assets folder)
-import invoice1 from "../assets/certificates/umang_cert.png";
-import invoice2 from "../assets/certificates/gaurav_cert.png";
-//import invoice3 from "./assets/invoice3.pdf";
-import invoice4 from "../assets/certificates/anurag_cert.png";
+// Import certificate assets
+import umangCert from "../assets/certificates/umang_cert.png";
+import gauravCert1 from "../assets/certificates/gaurav_cert.png";
+//import gauravCert2 from "../assets/certificates/gaurav_cert2.png"; // Example second certificate for Gaurav
+//import shantanuCert from "../assets/certificates/shantanu_cert.png";
+import anuragCert1 from "../assets/certificates/anurag_cert.png";
+//import anuragCert2 from "../assets/certificates/anurag_cert2.png"; // Example second certificate for Anurag
 
 function CourseDetail() {
   const { id } = useParams();
-  let person = null;
+  let user = null;
 
-  // Define person data based on the ID, including the PDF link
+  // Define user data based on the ID, including their course certificates
   if (id === "1") {
-    person = {
-      person_name: "Umang Singh",
-      person_course: "Web3 and DevOps",
-      completion_date: "May 15, 2024",
-      certificate_pdf: invoice1, // PDF file link
+    user = {
+      name: "Umang Singh",
+      courses: [
+        {
+          name: "Web3 and DevOps",
+          completionDate: "May 15, 2024",
+          certificate: umangCert,
+        },
+      ],
     };
   } else if (id === "2") {
-    person = {
-      person_name: "Gaurav Singh",
-      person_course: "Web Development",
-      completion_date: "Jun 1, 2024",
-      certificate_pdf: invoice2, // PDF file link
+    user = {
+      name: "Gaurav Singh",
+      courses: [
+        {
+          name: "Web Development",
+          completionDate: "June 1, 2024",
+          certificate: gauravCert1,
+        },
+        {
+          name: "Data Structures And Algorithms",
+          completionDate: "July 10, 2024",
+         // certificate: gauravCert2,
+        },
+      ],
     };
   } else if (id === "3") {
-    person = {
-      person_name: "Shantanu Chaudhary",
-      person_course: "Data Science",
-      completion_date: "May 27, 2024",
-      certificate_pdf: invoice3, // PDF file link
+    user = {
+      name: "Shantanu Chaudhary",
+      courses: [
+        {
+          name: "Data Science",
+          completionDate: "May 27, 2024",
+        //  certificate: shantanuCert,
+        },
+      ],
     };
   } else if (id === "4") {
-    person = {
-      person_name: "Anurag Kumar Tiwari",
-      person_course: "Machine Learning",
-      completion_date: "Jun 10, 2024",
-      certificate_pdf: invoice4, // PDF file link
+    user = {
+      name: "Anurag Kumar Tiwari",
+      courses: [
+        {
+          name: "Machine Learning",
+          completionDate: "June 10, 2024",
+          certificate: anuragCert1,
+        },
+        {
+          name: "Interview Prep",
+          completionDate: "June 19, 2024",
+          //certificate: anuragCert2,
+        },
+      ],
     };
   }
 
-  // Handle the case when the person data is not available
-  if (!person) {
+  // Handle the case when user data is not found
+  if (!user) {
     return (
       <div className="min-h-screen flex items-center justify-center text-gray-700">
-        Person not found
+        User not found
       </div>
     );
   }
 
-  // Function to handle certificate download
-  const handleDownload = () => {
+  // Function to handle certificate download for a specific course
+  const handleDownload = (certificate, courseName) => {
     const link = document.createElement("a");
-    link.href = person.certificate_pdf;
-    link.download = `${person.person_name}_certificate.png`;
+    link.href = certificate;
+    link.download = `${user.name}_${courseName}_certificate.png`;
     link.click();
   };
 
@@ -79,21 +107,16 @@ function CourseDetail() {
       <div className="bg-gradient-to-r from-blue-500 to-teal-500 text-white py-12">
         <div className="text-center mx-auto max-w-2xl">
           <h1 className="text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-red-300 via-yellow-400 to-black text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-red-300 via-yellow-400 to-red-300 text-transparent bg-clip-text">
               Congratulations{" "}
               <span className="text-yellow-200 bg-gradient-to-r from-red-300 via-yellow-400 to-red-400 text-transparent bg-clip-text">
-                {person.person_name}
+                {user.name}
               </span>
               !
             </span>
           </h1>
-
-          <p className="text-lg mb-6">
-            You have successfully completed your course on{" "}
-            <span className="text-black font-semibold">
-              {person.person_course}
-            </span>
-            .
+          <p className="text-lg mb-6 text-black">
+            You have successfully completed the following courses.
           </p>
         </div>
       </div>
@@ -104,19 +127,29 @@ function CourseDetail() {
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
             Course Details
           </h2>
-          <p className="text-lg text-gray-700 mb-4">
-            <strong className="font-medium">Completion Date:</strong>{" "}
-            {person.completion_date}
-          </p>
-          <p className="text-lg text-gray-700 mb-6">
-            You have passed the final project evaluation with flying colors.
-          </p>
-          <button
-            onClick={handleDownload}
-            className="bg-gradient-to-r from-blue-500 to-teal-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-200 hover:opacity-80"
-          >
-            Download Certificate
-          </button>
+
+          {/* Loop through the courses to display them */}
+          {user.courses.map((course, index) => (
+            <div key={index} className="mb-8">
+              <h3 className="text-xl font-semibold text-gray-800">
+                {course.name}
+              </h3>
+              <br />
+              <p className="text-lg text-gray-700">
+                <strong>Status</strong> Completed
+              </p>
+              <p className="text-lg text-gray-700 mb-4">
+                <strong>Completion Date:</strong> {course.completionDate}
+              </p>
+
+              <button
+                onClick={() => handleDownload(course.certificate, course.name)}
+                className="bg-gradient-to-r from-blue-500 to-teal-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-200 hover:opacity-80"
+              >
+                Download Certificate
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </div>

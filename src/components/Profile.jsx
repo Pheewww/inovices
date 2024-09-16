@@ -3,52 +3,95 @@ import { useParams, Link } from "react-router-dom";
 // Import the PDF files for invoices and certificates
 import invoice1 from "../assets/Umang_invoice.pdf";
 import invoice2 from "../assets/Gaurav_invoice.pdf";
-//import invoice3 from "./assets/invoice3.pdf";
+//import invoice3 from "../assets/Invoice3.pdf";
 import invoice4 from "../assets/Anurag_invoice.pdf";
 
-import certificate1 from "../assets/certificates/umang_cert.png";
-import certificate2 from "../assets/certificates/gaurav_cert.png";
-//import certificate3 from "../assets/certificates/umang_cert.png";
-import certificate4 from "../assets/certificates/anurag_cert.png";
+import umangCert from "../assets/certificates/umang_cert.png";
+import gauravCert1 from "../assets/certificates/gaurav_cert.png";
+import anuragCert1 from "../assets/certificates/anurag_cert.png";
 
 function Profile() {
   const { id } = useParams();
   const college = "Army Institute Of Technology, Pune";
 
-  const users = {
-    1: {
+  // Updated users array with email
+  const users = [
+    {
+      id: "1",
+      email: "umssh777@gmail.com",
+      phone: "6203086401",
       name: "Umang Singh",
-      courseEnrolled: "Web3 and DevOps",
-      enrollmentDate: "January 10, 2024",
-      invoice: invoice1, // Link to invoice PDF
-      certificate: certificate1, // Link to certificate PDF
+      courses: [
+        {
+          name: "Web3 and DevOps",
+          enrollmentDate: "January 10, 2024",
+          completionDate: "May 15, 2024",
+          invoice: invoice1,
+          certificate: umangCert,
+        },
+      ],
     },
-    2: {
+    {
+      id: "2",
+      email: "gaurav123gau123@gmail.com",
       name: "Gaurav Singh",
-      courseEnrolled: "Web Development",
-      enrollmentDate: "February 15, 2024",
-      invoice: invoice2,
-      certificate: certificate2,
+      phone: "8804891911",
+      courses: [
+        {
+          name: "Web Development",
+          enrollmentDate: "February 15, 2024",
+          completionDate: "June 1, 2024",
+          invoice: invoice2,
+          certificate: gauravCert1,
+        },
+        {
+          name: "Data Structures And Algorithms",
+          enrollmentDate: "March 21, 2024",
+          completionDate: "July 10, 2024",
+          invoice: invoice2,
+        },
+      ],
     },
-    3: {
+    {
+      id: "3",
+      email: "shantanu@example.com",
       name: "Shantanu Chaudhary",
-      courseEnrolled: "Data Science",
-      enrollmentDate: "March 20, 2024",
-      // invoice: invoice3,
-      // certificate: certificate3,
+      courses: [
+        {
+          name: "Data Science",
+          enrollmentDate: "March 20, 2024",
+          completionDate: "May 27, 2024",
+        },
+      ],
     },
-    4: {
+    {
+      id: "4",
+      email: "besotted99100@gmail.com",
       name: "Anurag Kumar Tiwari",
-      courseEnrolled: "Machine Learning",
-      enrollmentDate: "February 27, 2024",
-      invoice: invoice4,
-      certificate: certificate4,
+      phone: "8303110219",
+      courses: [
+        {
+          name: "Machine Learning",
+          enrollmentDate: "February 27, 2024",
+          completionDate: "June 10, 2024",
+          invoice: invoice4,
+          certificate: anuragCert1,
+        },
+        {
+          name: "Interview Prep",
+          enrollmentDate: "March 15, 2024",
+          completionDate: "June 19, 2024",
+          invoice: invoice4,
+          certificate: anuragCert1,
+        },
+      ],
     },
-  };
+  ];
 
-  const user = users[id] || {};
+  // Find user based on ID
+  const user = users.find((user) => user.id === id);
 
-  if (!user.name) {
+  if (!user) {
     return (
       <div className="min-h-screen flex items-center justify-center text-lg">
         Profile not found
@@ -56,19 +99,19 @@ function Profile() {
     );
   }
 
-  // Function to download the invoice
-  const downloadInvoice = () => {
+  // Function to download the invoice for a specific course
+  const downloadInvoice = (invoice, courseName) => {
     const link = document.createElement("a");
-    link.href = user.invoice;
-    link.download = `${user.name}_invoice.pdf`;
+    link.href = invoice;
+    link.download = `${user.name}_${courseName}_invoice.pdf`;
     link.click();
   };
 
-  // Function to download the certificate
-  const downloadCertificate = () => {
+  // Function to download the certificate for a specific course
+  const downloadCertificate = (certificate, courseName) => {
     const link = document.createElement("a");
-    link.href = user.certificate;
-    link.download = `${user.name}_certificate.png`;
+    link.href = certificate;
+    link.download = `${user.name}_${courseName}_certificate.png`;
     link.click();
   };
 
@@ -84,45 +127,59 @@ function Profile() {
           </Link>
         </div>
       </nav>
-      <div className="py-6 px-4 mx-auto max-w-4xl">
+      <div className="py-6 px-4 mx-auto max-w-5xl">
         <div className="p-8 bg-white rounded-lg shadow-lg">
-          <h1 className="text-3xl font-bold mb-6">Profile</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <h2 className="text-lg font-semibold text-gray-700">Name</h2>
-              <p className="text-gray-900">{user.name}</p>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            Profile: {user.name}
+          </h1>
+          <p className="text-lg text-gray-600 mb-2">
+            <strong>Email: </strong> {user.email}
+          </p>
+          <p className="text-lg text-gray-600 mb-2">
+            <strong>Phone: </strong> {user.phone}
+          </p>
+          <p className="text-lg text-gray-600 mb-6">
+            <strong>College: </strong> {college}
+          </p>
+
+          {/* Loop through the courses array to display each course */}
+          {user.courses.map((course, index) => (
+            <div key={index} className="mb-8">
+              <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+                <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+                  {course.name}
+                </h2>
+                <p className="text-lg text-gray-700 mb-1">
+                  <strong>Date of Enrollment:</strong> {course.enrollmentDate}
+                </p>
+                <p className="text-lg text-gray-700 mb-4">
+                  <strong>Completion Date:</strong> {course.completionDate}
+                </p>
+                <div className="flex flex-col md:flex-row gap-4">
+                  {course.invoice && (
+                    <button
+                      onClick={() =>
+                        downloadInvoice(course.invoice, course.name)
+                      }
+                      className="py-2 px-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-600 transition duration-200"
+                    >
+                      Download Invoice
+                    </button>
+                  )}
+                  {course.certificate && (
+                    <button
+                      onClick={() =>
+                        downloadCertificate(course.certificate, course.name)
+                      }
+                      className="py-2 px-4 font-bold text-white bg-green-500 rounded hover:bg-green-600 transition duration-200"
+                    >
+                      Download Certificate
+                    </button>
+                  )}
+                </div>
+              </div>
             </div>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-700">
-                Course Enrolled
-              </h2>
-              <p className="text-gray-900">{user.courseEnrolled}</p>
-            </div>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-700">College</h2>
-              <p className="text-gray-900">{college}</p>
-            </div>
-            <div>
-              <h2 className="text-lg font-semibold text-gray-700">
-                Date of Enrollment
-              </h2>
-              <p className="text-gray-900">{user.enrollmentDate}</p>
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row gap-60">
-            <button
-              onClick={downloadInvoice}
-              className="py-2 px-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-600 transition duration-200"
-            >
-              Download Invoice
-            </button>
-            <button
-              onClick={downloadCertificate}
-              className="py-2 px-4 font-bold text-white bg-green-500 rounded hover:bg-green-600 transition duration-200"
-            >
-              Download Certificate
-            </button>
-          </div>
+          ))}
         </div>
       </div>
     </div>
