@@ -3,15 +3,21 @@ import { useParams, Link } from "react-router-dom";
 // Import the PDF files for invoices and certificates
 import invoice1 from "../assets/Umang_invoice.pdf";
 import invoice2 from "../assets/Gaurav_invoice.pdf";
-//import invoice3 from "../assets/Invoice3.pdf";
+import invoice3 from "../assets/shantanu.pdf";
 import invoice4 from "../assets/Anurag_invoice.pdf";
 import invoice5 from "../assets/akrati_invoice.pdf";
 
 
 import umangCert from "../assets/certificates/umang_cert.png";
 import gauravCert1 from "../assets/certificates/gaurav_cert.png";
+import gauravCert2 from "../assets/certificates/gaurav_2_cert.png"; // Example second certificate for Gaurav
+
 import anuragCert1 from "../assets/certificates/anurag_cert.png";
+import anuragCert2 from "../assets/certificates/anurag_2_prep.png"; // Example second certificate for Anurag
+
 import akratiCert1 from "../assets/certificates/akrati_cert.png";
+import shantanuCert from "../assets/certificates/shantanu.png";
+
 
 
 function Profile() {
@@ -51,8 +57,8 @@ function Profile() {
         {
           name: "Data Structures And Algorithms",
           enrollmentDate: "March 21, 2024",
-          completionDate: "July 10, 2024",
-          invoice: invoice2,
+          completionDate: "June 11, 2024",
+          invoice: gauravCert2,
         },
       ],
     },
@@ -65,6 +71,8 @@ function Profile() {
           name: "Data Science",
           enrollmentDate: "March 20, 2024",
           completionDate: "May 27, 2024",
+          invoice: invoice3,
+          certificate: shantanuCert,
         },
       ],
     },
@@ -86,7 +94,7 @@ function Profile() {
           enrollmentDate: "March 15, 2024",
           completionDate: "June 19, 2024",
           invoice: invoice4,
-          certificate: anuragCert1,
+          certificate: anuragCert2,
         },
       ],
     },

@@ -3,10 +3,10 @@ import { Link, useParams } from "react-router-dom";
 // Import certificate assets
 import umangCert from "../assets/certificates/umang_cert.png";
 import gauravCert1 from "../assets/certificates/gaurav_cert.png";
-//import gauravCert2 from "../assets/certificates/gaurav_cert2.png"; // Example second certificate for Gaurav
-//import shantanuCert from "../assets/certificates/shantanu_cert.png";
+import gauravCert2 from "../assets/certificates/gaurav_2_cert.png"; // Example second certificate for Gaurav
+import shantanuCert from "../assets/certificates/shantanu.png";
 import anuragCert1 from "../assets/certificates/anurag_cert.png";
-//import anuragCert2 from "../assets/certificates/anurag_cert2.png"; // Example second certificate for Anurag
+import anuragCert2 from "../assets/certificates/anurag_2_prep.png"; // Example second certificate for Anurag
 import akratiCert1 from "../assets/certificates/akrati_cert.png";
 
 
@@ -38,7 +38,7 @@ function CourseDetail() {
         {
           name: "Data Structures And Algorithms",
           completionDate: "July 10, 2024",
-         // certificate: gauravCert2,
+          certificate: gauravCert2,
         },
       ],
     };
@@ -49,7 +49,7 @@ function CourseDetail() {
         {
           name: "Data Science",
           completionDate: "May 27, 2024",
-        //  certificate: shantanuCert,
+          certificate: shantanuCert,
         },
       ],
     };
@@ -65,7 +65,7 @@ function CourseDetail() {
         {
           name: "Interview Prep",
           completionDate: "June 19, 2024",
-          //certificate: anuragCert2,
+          certificate: anuragCert2,
         },
       ],
     };

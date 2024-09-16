@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const users = [
   { id: "1", email: "umssh777@gmail.com", password: "umang@123" },
   { id: "2", email: "gaurav123gau123@gmail.com", password: "gaurav@123" },
-  { id: "3", email: "shantanu@example.com", password: "password3" },
+  { id: "3", email: "shantanu03chaudhary@gmail.com", password: "shantanu@123" },
   { id: "4", email: "besotted99100@gmail.com", password: "anurag@123" },
   { id: "5", email: "akratisingh.2692@gmail.com", password: "akrati@123" },
 ];
