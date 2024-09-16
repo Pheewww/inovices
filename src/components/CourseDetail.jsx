@@ -7,6 +7,8 @@ import gauravCert1 from "../assets/certificates/gaurav_cert.png";
 //import shantanuCert from "../assets/certificates/shantanu_cert.png";
 import anuragCert1 from "../assets/certificates/anurag_cert.png";
 //import anuragCert2 from "../assets/certificates/anurag_cert2.png"; // Example second certificate for Anurag
+import akratiCert1 from "../assets/certificates/akrati_cert.png";
+
 
 function CourseDetail() {
   const { id } = useParams();
@@ -65,6 +67,17 @@ function CourseDetail() {
           completionDate: "June 19, 2024",
           //certificate: anuragCert2,
         },
+      ],
+    };
+  } else if (id === "5") {
+    user = {
+      name: "Akrati Singh",
+      courses: [
+        {
+          name: "Backend Development",
+          completionDate: "April 14, 2024",
+          certificate: akratiCert1,
+        }
       ],
     };
   }

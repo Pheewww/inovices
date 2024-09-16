@@ -71,6 +71,19 @@ function UserHome() {
         },
       ],
     };
+  }else if (id === "5") {
+    user = {
+      name: "Akrati Singh",
+      courses: [
+        {
+          name: "Backend Development",
+          enrollmentDate: "January 13, 2024",
+          progress: "96%",
+          duration: "Ended",
+          grade: "Passed",
+        }
+      ],
+    };
   }
 
   // Handle case when user data is not available

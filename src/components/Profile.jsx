@@ -5,10 +5,14 @@ import invoice1 from "../assets/Umang_invoice.pdf";
 import invoice2 from "../assets/Gaurav_invoice.pdf";
 //import invoice3 from "../assets/Invoice3.pdf";
 import invoice4 from "../assets/Anurag_invoice.pdf";
+import invoice5 from "../assets/akrati_invoice.pdf";
+
 
 import umangCert from "../assets/certificates/umang_cert.png";
 import gauravCert1 from "../assets/certificates/gaurav_cert.png";
 import anuragCert1 from "../assets/certificates/anurag_cert.png";
+import akratiCert1 from "../assets/certificates/akrati_cert.png";
+
 
 function Profile() {
   const { id } = useParams();
@@ -84,6 +88,21 @@ function Profile() {
           invoice: invoice4,
           certificate: anuragCert1,
         },
+      ],
+    },
+    {
+      id: "5",
+      email: "akratisingh.2692@gmail.com",
+      name: "Akrati Singh",
+      phone: "7457924466",
+      courses: [
+        {
+          name: "Backend Development",
+          enrollmentDate: "January 13, 2024",
+          completionDate: "April 14, 2024",
+          invoice: invoice5,
+          certificate: akratiCert1,
+        }
       ],
     },
   ];

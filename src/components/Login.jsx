@@ -6,6 +6,7 @@ const users = [
   { id: "2", email: "gaurav123gau123@gmail.com", password: "gaurav@123" },
   { id: "3", email: "shantanu@example.com", password: "password3" },
   { id: "4", email: "besotted99100@gmail.com", password: "anurag@123" },
+  { id: "5", email: "akratisingh.2692@gmail.com", password: "akrati@123" },
 ];
 
 function Login() {

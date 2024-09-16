@@ -64,6 +64,16 @@ const courses = [
     instructor: "Dr. G Kumar",
   },
   {
+    id: 10,
+    title: "Backend Development",
+    description: "Develop and deploy mobile applications for Android and iOS.",
+    price: 4799,
+    duration: "8 weeks",
+    level: "Intermediate",
+    certificate: true,
+    instructor: "Dr. A.K Sinha",
+  },
+  {
     id: 4,
     title: "Machine Learning",
     description:
