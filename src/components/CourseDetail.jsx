@@ -1,33 +1,43 @@
 import { Link, useParams } from "react-router-dom";
 
+// Import PDF assets (assuming they're placed in the public or assets folder)
+import invoice1 from "../assets/certificates/umang_cert.png";
+import invoice2 from "../assets/certificates/gaurav_cert.png";
+//import invoice3 from "./assets/invoice3.pdf";
+import invoice4 from "../assets/certificates/anurag_cert.png";
+
 function CourseDetail() {
   const { id } = useParams();
   let person = null;
 
-  // Define person data based on the ID
+  // Define person data based on the ID, including the PDF link
   if (id === "1") {
     person = {
       person_name: "Umang Singh",
       person_course: "Web3 and DevOps",
       completion_date: "May 15, 2024",
+      certificate_pdf: invoice1, // PDF file link
     };
   } else if (id === "2") {
     person = {
       person_name: "Gaurav Singh",
       person_course: "Web Development",
       completion_date: "Jun 1, 2024",
+      certificate_pdf: invoice2, // PDF file link
     };
   } else if (id === "3") {
     person = {
       person_name: "Shantanu Chaudhary",
       person_course: "Data Science",
       completion_date: "May 27, 2024",
+      certificate_pdf: invoice3, // PDF file link
     };
   } else if (id === "4") {
     person = {
       person_name: "Anurag Kumar Tiwari",
       person_course: "Machine Learning",
       completion_date: "Jun 10, 2024",
+      certificate_pdf: invoice4, // PDF file link
     };
   }
 
@@ -42,7 +52,10 @@ function CourseDetail() {
 
   // Function to handle certificate download
   const handleDownload = () => {
-    console.log("Downloading certificate...");
+    const link = document.createElement("a");
+    link.href = person.certificate_pdf;
+    link.download = `${person.person_name}_certificate.pdf`;
+    link.click();
   };
 
   return (
@@ -56,7 +69,7 @@ function CourseDetail() {
               Home
             </Link>
             <Link to="/courses" className="text-white hover:underline">
-              Back to Courses
+              Courses
             </Link>
           </div>
         </div>

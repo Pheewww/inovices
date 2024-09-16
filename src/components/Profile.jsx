@@ -1,5 +1,16 @@
 import { useParams, Link } from "react-router-dom";
 
+// Import the PDF files for invoices and certificates
+import invoice1 from "../assets/Umang_invoice.pdf";
+import invoice2 from "../assets/Gaurav_invoice.pdf";
+//import invoice3 from "./assets/invoice3.pdf";
+import invoice4 from "../assets/Anurag_invoice.pdf";
+
+import certificate1 from "../assets/certificates/umang_cert.png";
+import certificate2 from "../assets/certificates/gaurav_cert.png";
+//import certificate3 from "../assets/certificates/umang_cert.png";
+import certificate4 from "../assets/certificates/anurag_cert.png";
+
 function Profile() {
   const { id } = useParams();
   const college = "Army Institute Of Technology, Pune";
@@ -9,21 +20,29 @@ function Profile() {
       name: "Umang Singh",
       courseEnrolled: "Web3 and DevOps",
       enrollmentDate: "January 10, 2024",
+      invoice: invoice1, // Link to invoice PDF
+      certificate: certificate1, // Link to certificate PDF
     },
     2: {
       name: "Gaurav Singh",
       courseEnrolled: "Web Development",
       enrollmentDate: "February 15, 2024",
+      invoice: invoice2,
+      certificate: certificate2,
     },
     3: {
       name: "Shantanu Chaudhary",
       courseEnrolled: "Data Science",
       enrollmentDate: "March 20, 2024",
+      // invoice: invoice3,
+      // certificate: certificate3,
     },
     4: {
       name: "Anurag Kumar Tiwari",
       courseEnrolled: "Machine Learning",
       enrollmentDate: "February 27, 2024",
+      invoice: invoice4,
+      certificate: certificate4,
     },
   };
 
@@ -37,12 +56,20 @@ function Profile() {
     );
   }
 
+  // Function to download the invoice
   const downloadInvoice = () => {
-    alert(`Downloading invoice for ${user.courseEnrolled}`);
+    const link = document.createElement("a");
+    link.href = user.invoice;
+    link.download = `${user.name}_invoice.pdf`;
+    link.click();
   };
 
+  // Function to download the certificate
   const downloadCertificate = () => {
-    alert(`Downloading certificate for ${user.courseEnrolled}`);
+    const link = document.createElement("a");
+    link.href = user.certificate;
+    link.download = `${user.name}_certificate.pdf`;
+    link.click();
   };
 
   return (

@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const users = [
-  { id: "1", email: "umang@example.com", password: "password1" },
-  { id: "2", email: "gaurav@example.com", password: "password2" },
+  { id: "1", email: "umssh777@gmail.com", password: "umang@123" },
+  { id: "2", email: "gaurav123gau123@gmail.com", password: "gaurav@123" },
   { id: "3", email: "shantanu@example.com", password: "password3" },
-  { id: "4", email: "anurag@example.com", password: "password4" },
+  { id: "4", email: "besotted99100@gmail.com", password: "anurag@123" },
 ];
 
 function Login() {
