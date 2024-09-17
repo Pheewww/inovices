@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 
 // Import the PDF files for invoices and certificates
-import invoice1 from "../assets/Umang_invoice.pdf";
+import invoice1 from "../assets/umang_INVOICE_Final.pdf";
 import invoice2 from "../assets/Gaurav_invoice.pdf";
 import invoice3 from "../assets/shantanu.pdf";
 import invoice4 from "../assets/Anurag_invoice.pdf";

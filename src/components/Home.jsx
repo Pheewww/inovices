@@ -96,6 +96,11 @@ const partners = [
     name: "Wipro",
     logo: "/images/wipro-logo.png",
   },
+  {
+    id: 4,
+    name: "Accenture",
+    logo: "/images/wipro-logo.png",
+  },
 ];
 
 function Home() {
@@ -131,7 +136,8 @@ function Home() {
       <nav className="text-white bg-gray-800">
         <div className="px-4 mx-auto max-w-7xl">
           <div className="flex justify-between items-center py-4">
-            <div>
+            <div className="flex items-center">
+              <img src="/Educate.png" alt="logo" className="h-8 w-10 mr-2" />
               <span className="text-xl font-bold">Educate Learning</span>
             </div>
             <div className="hidden md:block">
@@ -257,6 +263,38 @@ function Home() {
           </div>
         </div>
       </animated.div>
+      {/* Features Section */}
+      <animated.div style={featureAnimation} className="py-8 bg-white">
+        <div className="px-4 mx-auto max-w-7xl">
+          <h2 className="mb-4 text-3xl font-bold text-center">Course Features</h2>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {/* Feature 1: Certificates */}
+            <div className="p-6 bg-gray-100 rounded-lg shadow-lg">
+              <h3 className="mb-2 text-xl font-bold">Certificates</h3>
+              <p className="mb-4 text-gray-700">
+                Receive a certificate of completion at the end of each course,
+                helping you showcase your skills to employers.
+              </p>
+            </div>
+            {/* Feature 2: Course Types */}
+            <div className="p-6 bg-gray-100 rounded-lg shadow-lg">
+              <h3 className="mb-2 text-xl font-bold">Course Types</h3>
+              <p className="mb-4 text-gray-700">
+                Choose between recorded self-paced courses or live,
+                instructor-led sessions, depending on your learning style.
+              </p>
+            </div>
+            {/* Feature 3: Capstone Project */}
+            <div className="p-6 bg-gray-100 rounded-lg shadow-lg">
+              <h3 className="mb-2 text-xl font-bold">Capstone Project</h3>
+              <p className="mb-4 text-gray-700">
+                At the end of your learning journey, complete a capstone project
+                to apply your new skills and build a portfolio.
+              </p>
+            </div>
+          </div>
+        </div>
+      </animated.div>
 
       {/* FAQ Section */}
       <animated.div style={featureAnimation} className="py-8 bg-white">
@@ -338,8 +376,14 @@ function Home() {
       {/* Footer */}
       <footer className="p-4 text-white bg-gray-800">
         <div className="mx-auto max-w-7xl">
-          <p className="text-center">
-            &copy; 2024 Educate Learning. All rights reserved.
+          <p className="text-center mt-2">
+            For support, contact us at:{" "}
+            <a
+              href="mailto:educatelearning.help@gmail.com"
+              className="underline hover:text-gray-300"
+            >
+              educatelearning.help@gmail.com
+            </a>
           </p>
         </div>
       </footer>
