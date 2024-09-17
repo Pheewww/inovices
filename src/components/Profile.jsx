@@ -3,8 +3,10 @@ import { useParams, Link } from "react-router-dom";
 // Import the PDF files for invoices and certificates
 import invoice1 from "../assets/umang_INVOICE_Final.pdf";
 import invoice2 from "../assets/Gaurav_invoice.pdf";
+import invoice2_gaurav from "../assets/gaurav_2_invoice.pdf";
 import invoice3 from "../assets/shantanu.pdf";
 import invoice4 from "../assets/Anurag_invoice.pdf";
+import invoice4_anu from "../assets/anurag_2_inoice.pdf";
 import invoice5 from "../assets/akrati_invoice.pdf";
 
 
@@ -58,7 +60,8 @@ function Profile() {
           name: "Data Structures And Algorithms",
           enrollmentDate: "March 21, 2024",
           completionDate: "June 11, 2024",
-          invoice: gauravCert2,
+          invoice: invoice2_gaurav,
+          certificate: gauravCert2,
         },
       ],
     },
@@ -93,7 +96,7 @@ function Profile() {
           name: "Interview Prep",
           enrollmentDate: "March 15, 2024",
           completionDate: "June 19, 2024",
-          invoice: invoice4,
+          invoice: invoice4_anu,
           certificate: anuragCert2,
         },
       ],
@@ -110,7 +113,7 @@ function Profile() {
           completionDate: "April 14, 2024",
           invoice: invoice5,
           certificate: akratiCert1,
-        }
+        },
       ],
     },
   ];
