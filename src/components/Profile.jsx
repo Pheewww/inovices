@@ -8,7 +8,7 @@ import invoice3 from "../assets/shantanu.pdf";
 import invoice4 from "../assets/Anurag_invoice.pdf";
 import invoice4_anu from "../assets/anurag_2_inoice.pdf";
 import invoice5 from "../assets/akrati_invoice.pdf";
-
+import invoice6 from "../assets/akash_invoice.pdf";
 
 import umangCert from "../assets/certificates/umang_cert.png";
 import gauravCert1 from "../assets/certificates/gaurav_cert.png";
@@ -19,8 +19,7 @@ import anuragCert2 from "../assets/certificates/anurag_2_prep.png"; // Example s
 
 import akratiCert1 from "../assets/certificates/akrati_cert.png";
 import shantanuCert from "../assets/certificates/shantanu.png";
-
-
+import akashCert1 from "../assets/certificates/akash_cert.png";
 
 function Profile() {
   const { id } = useParams();
@@ -113,6 +112,21 @@ function Profile() {
           completionDate: "April 14, 2024",
           invoice: invoice5,
           certificate: akratiCert1,
+        },
+      ],
+    },
+    {
+      id: "6",
+      email: "groundedakash@gmail.com",
+      name: "Akash Kumar",
+      phone: "7404163602",
+      courses: [
+        {
+          name: "Backend Development",
+          enrollmentDate: "February 15, 2024",
+          completionDate: "June 1, 2024",
+          invoice: invoice6,
+          certificate: akashCert1,
         },
       ],
     },

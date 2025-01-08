@@ -71,7 +71,7 @@ function UserHome() {
         },
       ],
     };
-  }else if (id === "5") {
+  } else if (id === "5") {
     user = {
       name: "Akrati Singh",
       courses: [
@@ -81,7 +81,20 @@ function UserHome() {
           progress: "96%",
           duration: "Ended",
           grade: "Passed",
-        }
+        },
+      ],
+    };
+  } else if (id === "6") {
+    user = {
+      name: "Akash Kumar",
+      courses: [
+        {
+          name: "Backend Development",
+          enrollmentDate: "February 15, 2024",
+          progress: "96%",
+          duration: "Ended",
+          grade: "Passed",
+        },
       ],
     };
   }
@@ -102,7 +115,7 @@ function UserHome() {
           Welcome Back, {user.name}!
         </h1>
         <p className="mb-6 text-lg text-gray-600">
-          We're excited to help you continue your learning journey.
+          We are excited to help you continue your learning journey.
         </p>
 
         {/* User Overview Card */}

@@ -8,6 +8,7 @@ import shantanuCert from "../assets/certificates/shantanu.png";
 import anuragCert1 from "../assets/certificates/anurag_cert.png";
 import anuragCert2 from "../assets/certificates/anurag_2_prep.png"; // Example second certificate for Anurag
 import akratiCert1 from "../assets/certificates/akrati_cert.png";
+import akashCert1 from "../assets/certificates/akash_cert.png";
 
 
 function CourseDetail() {
@@ -78,6 +79,17 @@ function CourseDetail() {
           completionDate: "April 14, 2024",
           certificate: akratiCert1,
         }
+      ],
+    };
+  } else if (id === "6"){
+    user = {
+      name: "Akash Kumar",
+      courses: [
+        {
+          name: "Backend Development",
+          completionDate: "June 1, 2024",
+          certificate: akashCert1,
+        },
       ],
     };
   }
